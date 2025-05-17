@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="The flagship website for the Young Inventors Box Initaitive.">
+    <title>YIBI</title>
+
+    <!--CSS Styling-->
+    <style>
+        html,
+        body {
+            font-family: "Trebuchet MS", Helvetica, sans-serif;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: rgb(0, 32, 63);
+        }
+
+        .header {
+            width: 100%;
+        }
+
+        /* Navigation */
+        .navbar {
+            display: flex;
+            justify-content: right;
+            gap: 5%;
+            list-style: none;
+            margin-right: 3%;
+            color: rgb(255, 237, 197);
+            font-size: 250%;
+        }
+
+        .navbar li a:hover {
+            color: rgb(255, 237, 197);
+        }
+
+        .navbar a {
+            text-decoration: none;
+            color: rgb(255, 237, 197)
+        }
+
+        /* Main Body Text*/
+        #bridge {
+            color: white;
+            font-size: 800%;
+            margin-top: 10%;
+            margin-left: 10%;
+            color: rgb(255, 237, 197);
+        }
+
+        /* Typewrite Effect */
+        .typewriter h1 {
+            overflow: hidden;
+            /* Ensures the content is not revealed until the animation */
+            border-right: .15em solid orange;
+            /* The typwriter cursor */
+            white-space: nowrap;
+            /* Gives that scrolling effect as the typing happens */
+            letter-spacing: .15em;
+            /* Adjust as needed */
+            animation:
+                typing 2s steps(15, end),
+                blink-caret .75s step-end infinite;
+        }
+
+        /* The typing effect */
+        @keyframes typing {
+            from {
+                width: 0
+            }
+
+            to {
+                width: 15ch
+            }
+        }
+
+        /* The typewriter cursor effect */
+        @keyframes blink-caret {
+
+            from,
+            to {
+                border-color: transparent
+            }
+
+            50% {
+                border-color: rgb(255, 237, 197);
+            }
+        }
+    </style>
+</head>
+
+<!--Main Body-->
+
+<body>
+    <header class="header">
+        <nav>
+            <ul class="navbar">
+                <li><a href="../mainFiles.html/index.html">Home</a></li>
+                <li><a href="../mainFiles.html/about.html">About Us</a></li>
+                <li><a href="../mainFiles.html/mission.html">Mission</a></li>
+                <li><a href="../mainFiles.html/contact.html">Contact Us</a></li>
+                <li><a href="../mainFiles.html/donate">Support Us!</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div id="main" class="typewriter">
+            <h1 id="bridge" style="text-align: left;">Bridge the gap.</h1>
+        </div>
+    </main>
+
+    <footer>
+
+    </footer>
+</body>
+
+</html>
