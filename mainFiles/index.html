@@ -23,52 +23,122 @@
             margin: 0;
             padding: 0;
             overflow: auto;
+
         }
 
-        #main{
-            /*
-            background-color: rgb(0, 32, 63);
-            */
+        #main {
             width: 100%;
             height: 30%;
+            font-size: 200%;
         }
 
         .header {
             width: 100%;
-            height:50%;
-            background-image: url("../images/logo.png");
+            height: 50%;
+            background-color: rgb(12, 12, 12);
             background-size: 100% auto;
             background-repeat: no-repeat;
             background-position: center;
         }
 
         /* Navigation */
-        .navbar {
+        nav {
+            height: 60px;
+            background-color: rgb(12, 12, 12);
             display: flex;
-            justify-content: right;
-            gap: 5%;
-            list-style: none;
-            margin-right: 3%;
-            color: rgb(252, 123, 3);
-            font-size: 200%;
-            position: sticky;
+            justify-content: flex-end;
+            align-items: center;
         }
 
-        .navbar li a:hover {
-            color: rgb(252, 123, 3);
+        .links-container {
+            height: 100%;
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
         }
 
-        .navbar a {
+        nav a {
+            height: 100%;
+            padding: 0 20px;
+            display: flex;
+            align-items: center;
             text-decoration: none;
-            color: rgb(252, 123, 3)
+            color: white;
+            font-size: 150%;
+        }
+
+        nav a:hover {
+            background-color: rgb(252, 123, 3);
+        }
+
+        nav .home-link {
+            margin-right: auto;
+        }
+
+        nav svg {
+            fill: white;
+        }
+
+        #sidebar-active {
+            display: none;
+        }
+
+        .open-sidebar-button,
+        .close-sidebar-button {
+            display: none;
+            padding: 0 20px;
+        }
+
+        @media(max-width: 690px) {
+            .links-container {
+                flex-direction: column;
+                align-items: flex-start;
+
+                position: fixed;
+                top: 0;
+                right: -100%;
+                z-index: 10;
+                width: 300px;
+
+                background-color: rgb(12, 12, 12);
+                box-shadow: -5px 0 5px rgba(0, 0, 0, 0.25);
+                transition: 1s ease-out;
+            }
+
+            nav a {
+                box-sizing: border-box;
+                height: auto;
+                width: 100%;
+                padding: 20px 30px;
+                justify-content: flex-start;
+            }
+
+            .open-sidebar-button,
+            .close-sidebar-button {
+                display: block;
+            }
+
+            #sidebar-active:checked ∼ .links-container {
+                right: 0;
+            }
+
+            #sidebar-active:checked ∼ #overlay {
+                height: 100%;
+                width: 100%;
+                position: fixed;
+                top: 0;
+                left: 0;
+                z-index: 9;
+            }
         }
 
         /* Main Body Text*/
         #bridge {
             color: white;
             font-size: 650%;
-            width: 76%;
-            margin-top: 10%;
+            width: 75%;
+            margin-top: 5%;
             margin-left: 10%;
             color: rgb(252, 123, 3);
         }
@@ -119,13 +189,31 @@
 <body>
     <header class="header">
         <nav>
-            <ul class="navbar">
-                <li><a href="../mainFiles.html/index.html">Home</a></li>
-                <li><a href="../mainFiles.html/about.html">About Us</a></li>
-                <li><a href="../mainFiles.html/mission.html">Mission</a></li>
-                <li><a href="../mainFiles.html/contact.html">Contact Us</a></li>
-                <li><a href="../mainFiles.html/donate">Support Us!</a></li>
-            </ul>
+            <input type="checkbox" id="sidebar-active">
+            <label for="sidebar-active" class="open-sidebar-button">
+                <svg xmlns="http://www.w3.org/2000/svg" height="32" viewBox="0 -960 960 960" width="32" fill="#e3e3e3">
+                    <path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z" />
+                </svg>
+            </label>
+
+            <label id="overlay" for="sidebar-active">
+
+            </label>
+            <div class="links-container">
+                <label for="sidebar-active" class="close-sidebar-button">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="32" viewBox="0 -960 960 960" width="32"
+                        fill="#e3e3e3">
+                        <path
+                            d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z" />
+                    </svg>
+                </label>
+
+                <a class="home-link" href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="contact.html">Contact</a>
+                <a href="donate.html">Donate</a>
+                <a href="mission.html">Mission</a>
+            </div>
         </nav>
 
         <div id="main" class="typewriter">
@@ -134,11 +222,10 @@
     </header>
 
     <main>
-        <h1 style="font-size: 500%;">Lorem ipsum dolor sit amet consectetur, adipisicing elit. 
+        <h1 style="font-size: 500%;">Lorem ipsum dolor sit amet consectetur, adipisicing elit.
             Labore laboriosam ipsum, blanditiis cupiditate, enim ullam facilis odio dicta
              beatae nostrum voluptates modi quisquam repellat tempora temporibus, 
-            sed perferendis exercitationem. Vero.
-        </h1>
+            sed perferendis exercitationem. Vero.</h1>
     </main>
 
     <footer>
